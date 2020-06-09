@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+Rails.application.config.generators do |g|
+  # Disable generators we don't need.
+  g.javascripts false
+  g.stylesheets false
+  g.assets false
+  g.helper false
+  g.test_framework :minitest
+  g.channel assets: false
+#  g.komponent stimulus: true, locale: true
+end

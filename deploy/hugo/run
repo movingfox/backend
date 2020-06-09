@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec chpst -u app /home/app/site/deploy/hugo.sh
+
