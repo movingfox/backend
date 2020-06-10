@@ -5,10 +5,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   Rake::Task['db:fixtures:load'].invoke("MODEL='xxx,yyy'")
 
-Rake::Task['db:fixtures:load'].invoke("MODEL='tax,vendor'")
 Administrator.create(email: "#{Rails.application.credentials.admin[:email]}",
-                     password: "#{Rails.application.credentials.admin[:password]}",
-                     first_name: 'Fox', last_name: 'Chao')
+    password: "#{Rails.application.credentials.admin[:password]}",
+    first_name: 'Name', last_name: 'Surname')

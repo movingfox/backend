@@ -4,6 +4,7 @@ def source_paths
   [__dir__]
 end
 
+copy_file 'Guardfile', 'Guardfile'
 copy_file 'Procfile', 'Procfile'
 directory 'bin', 'bin', force: true
 directory 'config', 'config', force: true
@@ -49,6 +50,7 @@ end
 apply 'gemfile.rb'
 
 after_bundle do
+  run 'rails generate annotate:install'
   run 'rails generate friendly_id'
   run 'rails generate trestle:install'
   run 'rails generate trestle:auth:install Administrator'
@@ -60,6 +62,8 @@ after_bundle do
     RUBY
   end
   run 'rails generate komponent:install'
+  run 'rake annotate_models'
+  run 'rake annotate_routes'
   git :init
   git add: '.'
   git commit: %( -m 'Initial commit' )
