@@ -9,6 +9,7 @@ copy_file 'Procfile', 'Procfile'
 directory 'bin', 'bin', force: true
 directory 'config', 'config', force: true
 directory 'db', 'db', force: true
+directory 'lib', 'lib', force: true
 
 insert_into_file 'config/application.rb', after: /6\.0\n/ do
   <<-RUBY
@@ -57,6 +58,7 @@ end
 
 after_bundle do
   run 'rails generate annotate:install'
+  run 'rails generate erd:install'
   run 'rails generate friendly_id'
   run 'rails generate trestle:install'
   run 'rails generate trestle:auth:install Administrator'

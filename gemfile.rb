@@ -5,9 +5,9 @@ uncomment_lines 'Gemfile', 'bcrypt'
 
 gem_group :development do
   gem 'annotate'
+  gem 'rails-erd'
   gem 'awesome_print'
   gem 'bullet'
-  gem 'rails-erd'
 
   gem 'brakeman', require: false
   gem 'overcommit'
@@ -52,6 +52,9 @@ gem 'tidy_ffi'  # cleanup HTML
 # Friendly ID
 gem 'friendly_id'
 gem 'babosa'
+
+# Images
+gem 'mini_magick'
 
 # User management
 gem 'devise'
