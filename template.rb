@@ -49,6 +49,12 @@ end
 
 apply 'gemfile.rb'
 
+insert_into_file 'app/assets/config/manifest.js', after: /\.css\n/ do
+  <<-RUBY
+//= link trestle/sidekiq.css
+  RUBY
+end
+
 after_bundle do
   run 'rails generate annotate:install'
   run 'rails generate friendly_id'
