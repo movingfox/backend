@@ -1,0 +1,78 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - bin/*
+    - db/migrate/*
+    - db/schema.rb
+    - node_modules/**/*
+    - vendor/gems/**/*
+
+Layout/LineLength:
+  Max: 255
+    
+Layout/HashAlignment:
+  Enabled: False
+
+Metrics/AbcSize:
+  Max: 40
+  Exclude:
+    - lib/tasks/*.rake
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - app/admin/**/*_admin.rb
+    - lib/tasks/*.rake
+    - Guardfile
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - lib/tasks/*.rake
+
+Metrics/ParameterLists:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Naming/FileName:
+  Exclude:
+    - config/locales/**/*.rb
+
+Rails:
+  Enabled: true
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/GlobalVars:
+  AllowedVariables:
+    - $redis
+
+Style/StructInheritance:
+  Exclude:
+    - app/policies/*

@@ -8,5 +8,5 @@ Rails.application.config.generators do |g|
   g.helper false
   g.test_framework :minitest
   g.channel assets: false
-#  g.komponent stimulus: true, locale: true
+  #  g.komponent stimulus: true, locale: true
 end

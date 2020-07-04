@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-uncomment_lines 'Gemfile', 'redis'
 uncomment_lines 'Gemfile', 'bcrypt'
 
 gem_group :development do
@@ -39,8 +38,12 @@ gem 'trestle-search'
 gem 'trestle-sidekiq', github: 'movingfox/trestle-sidekiq'
 
 # Background processing
+gem 'hiredis'
 gem 'sidekiq'
 gem 'sidekiq-failures'
+
+# Reactive support
+gem 'view_component_reflex'
 
 # Operate text files
 gem 'front_matter_parser'
@@ -63,7 +66,6 @@ gem 'devise-i18n'
 # Utilities
 gem 'addressable'
 gem 'geared_pagination'
-gem 'komponent', github: 'komposable/komponent'
 gem 'platform_agent'
 gem 'ransack'
 gem 'slim-rails'

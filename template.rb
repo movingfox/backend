@@ -4,27 +4,24 @@ def source_paths
   [__dir__]
 end
 
-copy_file 'Guardfile', 'Guardfile'
-copy_file 'Procfile', 'Procfile'
 directory 'bin', 'bin', force: true
 directory 'config', 'config', force: true
 directory 'db', 'db', force: true
 directory 'lib', 'lib', force: true
+copy_file 'Procfile', 'Procfile'
+copy_file '.rubocop', '.rubocop'
+copy_file '.rubocop.yml', '.rubocop.yml'
+copy_file '.gitignore', 'gitignore'
 
 insert_into_file 'config/application.rb', after: /6\.0\n/ do
   <<-RUBY
     config.time_zone = 'Taipei'
-    config.i18n.available_locales = [:en, 'zh-TW']
-    config.i18n.default_locale = 'zh-TW'
-    config.i18n.fallbacks = true
-    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
 
     config.active_job.queue_adapter = :sidekiq
 
     # Customize generators
     config.generators do |g|
       g.orm             :active_record
-      g.template_engine :slim
       g.helper          false
       g.test_framework  :minitest, spec: false
     end
@@ -51,8 +48,8 @@ end
 apply 'gemfile.rb'
 
 insert_into_file 'app/assets/config/manifest.js', after: /\.css\n/ do
-  <<-RUBY
-//= link trestle/sidekiq.css
+  <<~RUBY
+    //= link trestle/sidekiq.css
   RUBY
 end
 
@@ -69,9 +66,10 @@ after_bundle do
   config.secret_key = Rails.application.credentials.secret_key_base
     RUBY
   end
-  run 'rails generate komponent:install'
   run 'rake annotate_models'
   run 'rake annotate_routes'
+  run 'brakeman'
+  run 'rubocop -a'
   git :init
   git add: '.'
   git commit: %( -m 'Initial commit' )

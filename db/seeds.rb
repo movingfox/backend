@@ -7,6 +7,6 @@
 #
 #   Rake::Task['db:fixtures:load'].invoke("MODEL='xxx,yyy'")
 
-Administrator.create(email: "#{Rails.application.credentials.admin[:email]}",
-    password: "#{Rails.application.credentials.admin[:password]}",
+Administrator.create(email: Rails.application.credentials.admin[:email].to_s,
+    password: Rails.application.credentials.admin[:password].to_s,
     first_name: 'Name', last_name: 'Surname')
