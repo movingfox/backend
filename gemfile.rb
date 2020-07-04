@@ -31,6 +31,8 @@ gem_group :development, :test do
   gem 'rails-controller-testing'
 end
 
+gem 'rails-i18n'
+
 # Admin
 gem 'trestle'
 gem 'trestle-auth', github: 'TrestleAdmin/trestle-auth'
@@ -66,7 +68,7 @@ gem 'devise-i18n'
 # Utilities
 gem 'addressable'
 gem 'geared_pagination'
-gem 'platform_agent'
+gem 'bootstrap_form'
 gem 'ransack'
 gem 'slim-rails'
 gem 'spreadsheet_architect'
