@@ -14,12 +14,6 @@ def squish_row!(row)
   row.each { |field| field&.squish! }
 end
 
-def print_ntd(val)
-  return nil unless val
-
-  'NT$' + val.to_s.sub(/\.0$/, '').with_commas
-end
-
 class Time
   def to_stamp
     strftime('%y-%m-%d %H:%M')

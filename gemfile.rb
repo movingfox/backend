@@ -17,11 +17,21 @@ gem_group :development do
   gem 'guard'
   gem 'guard-bundler', require: false
   gem 'guard-livereload', require: false
-  gem 'guard-minitest', require: false
+  gem 'guard-minitest'
+
   gem 'rack-livereload'
 
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Profiler
+  gem 'rack-mini-profiler'
+  # For memory profiling
+  gem 'memory_profiler'
+
+  # For call-stack profiling flamegraphs
+  gem 'flamegraph'
+  gem 'stackprof'
 end
 
 gem_group :development, :test do
