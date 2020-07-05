@@ -20,22 +20,12 @@ insert_into_file 'config/application.rb', after: /'rails\/all'\n/ do
   RUBY
 end
 
-insert_into_file 'config/application.rb', after: /6\.0\n/ do
+insert_into_file 'config/application.rb', after: /application\.\n/ do
   <<-RUBY
-    config.time_zone = 'Taipei'
-
     config.action_cable.mount_path = '/cable'
-    config.active_job.queue_adapter = :sidekiq
-
-    # Customize generators
-    config.generators do |g|
-      g.orm             :active_record
-      g.helper          false
-      g.test_framework  :minitest, spec: false
-    end
-
     # Fix the compatibility problem with wicked_pdf
     config.view_component.render_monkey_patch_enabled = false # defaults to true
+    config.time_zone = 'Taipei'
   RUBY
 end
 

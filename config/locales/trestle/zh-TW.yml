@@ -1,0 +1,94 @@
+zh-TW:
+  trestle:
+    title: "Trestle Admin"
+    footer: "由 Trestle 強力驅動"
+    version: "版本"
+
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "沒找到%{entry_name}"
+            one: "已顯示 <strong>1</strong> 條%{entry_name}記錄"
+            other: "已顯示<strong>全部 %{count}</strong> 條%{entry_name}記錄"
+
+        more_pages:
+          display_entries: "顯示 %{entry_name} <strong>%{first}&nbsp;-&nbsp;%{last}</strong>，總共 <b>%{total} 條記錄</b>"
+
+    onboarding:
+      welcome: "歡迎使用 Trestle"
+      no_admins: "要開始使用，請在 <code>app/admin</code> 裏創建管理資源。"
+      no_template: "要自定義此模板，請創建 <code>%{path}</code>。"
+      no_form: "請定義一個表單塊或者創建一個 <code>_form.html</code> 文件。"
+
+    ui:
+      toggle_navigation: "打開/隱藏導航"
+      toggle_sidebar: "打開/隱藏側邊欄"
+
+    dialog:
+      error: 無法完成該請求。
+
+    confirmation:
+      title: 真的要刪除嗎？
+      delete: 刪除
+      cancel: 取消
+
+  admin:
+    titles:
+      index: "%{pluralized_model_name}列表"
+      new: "新建%{model_name}"
+      edit: "編輯%{model_name}"
+
+    buttons:
+      new: "新建%{model_name}"
+      save: "保存%{model_name}"
+      delete: "刪除%{model_name}"
+      ok: "確定"
+
+    breadcrumbs:
+      home: "首頁"
+
+    flash:
+      create:
+        success:
+          title: "成功！"
+          message: "%{lowercase_model_name}創建成功。"
+
+        failure:
+          title: "警告!"
+          message: "請修正以下錯誤。"
+
+      update:
+        success:
+          title: "成功！"
+          message: "%{lowercase_model_name}更新成功。"
+
+        failure:
+          title: "警告!"
+          message: "請修正以下錯誤。"
+
+      destroy:
+        success:
+          title: "成功！"
+          message: "%{lowercase_model_name}刪除成功。"
+
+        failure:
+          title: "警告!"
+          message: "不能刪除%{lowercase_model_name}。"
+
+    table:
+      headers:
+        id: "ID"
+
+    form:
+      select:
+        prompt: "- 選擇%{attribute_name} -"
+
+    format:
+      blank: "無"
+
+    datepicker:
+      formats:
+        date: "Y年m月d日"
+        datetime: "Y年m月d日 H:i"
+        time: "H:i"
